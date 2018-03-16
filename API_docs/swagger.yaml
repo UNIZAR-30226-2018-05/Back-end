@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "Back-end API del Proyecto Cierzo"
-  version: "1.0.0"
+  version: "2.0.0"
   title: "Proyecto Cierzo API"
   license:
     name: "Apache 2.0"
@@ -873,6 +873,88 @@ paths:
             $ref: "#/definitions/AuthorItem"
         400:
           description: "bad input parameter"
+        404:
+          description: "not found"
+  /authors/{authorID}/image:
+    get:
+      tags:
+      - "public"
+      summary: "obtiene el archivo de audio de una canción"
+      description: "Obtiene el archivo de audio de la canción identificada por songID\n"
+      operationId: "getAuthorImage"
+      produces:
+      - "image/png"
+      parameters:
+      - name: "authorID"
+        in: "path"
+        description: "ID de la canción"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "success"
+          schema:
+            type: "file"
+        400:
+          description: "bad input parameter"
+        404:
+          description: "not found"
+    post:
+      tags:
+      - "admins"
+      summary: "carga el archivo de audio de una canción"
+      description: "Un admin carga el archivo de audio de una canción con identificador\
+        \ songID."
+      operationId: "uploadAuthorImage"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authorID"
+        in: "path"
+        description: "ID de la canción"
+        required: true
+        type: "string"
+      - name: "authorImage"
+        in: "formData"
+        description: "Song item to update"
+        required: true
+        type: "file"
+      responses:
+        201:
+          description: "file uploaded"
+        400:
+          description: "invalid input, object invalid"
+        401:
+          description: "need authentification"
+        403:
+          description: "operation forbidden for user"
+        404:
+          description: "not found"
+    delete:
+      tags:
+      - "admins"
+      summary: "elimina el archivo de audio de una canción"
+      description: "Elimina el fichero de audio de una canción identificada por songID\n"
+      operationId: "deleteAuthorImage"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authorID"
+        in: "path"
+        description: "ID de la canción"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "song deleted"
+        400:
+          description: "bad input parameter"
+        401:
+          description: "need authentification"
+        403:
+          description: "operation forbidden for user"
         404:
           description: "not found"
   /profiles:
