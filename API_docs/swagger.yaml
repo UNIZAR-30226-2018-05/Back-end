@@ -1635,6 +1635,7 @@ definitions:
     - "friends"
     - "id"
     - "name"
+    - "playlists"
     - "username"
     properties:
       id:
@@ -1654,8 +1655,69 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/ProfileItem"
+      playlists:
+        type: "array"
+        items:
+          $ref: "#/definitions/PlaylistItem"
     example:
       name: "Richard Stallman"
+      playlists:
+      - ownerName: "Richard Stallman"
+        songs:
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        name: "Best music 1980"
+        description: "Relax and enjoy the very best hits of the most awesome decade\
+          \ of music"
+        id: "98765"
+        ownerID: "11111"
+        creationDate: "2018-03-11T00:00:00.000Z"
+      - ownerName: "Richard Stallman"
+        songs:
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        name: "Best music 1980"
+        description: "Relax and enjoy the very best hits of the most awesome decade\
+          \ of music"
+        id: "98765"
+        ownerID: "11111"
+        creationDate: "2018-03-11T00:00:00.000Z"
       bio: "¡Larga vida al Open Source!"
       id: "11111"
       friends:
@@ -1686,6 +1748,7 @@ definitions:
     - "id"
     - "mail"
     - "name"
+    - "playlists"
     - "username"
     properties:
       id:
@@ -1708,13 +1771,131 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/ProfileItem"
+      playlists:
+        type: "array"
+        items:
+          $ref: "#/definitions/PlaylistItem"
     example:
       mail: "rms@gnu.org"
       name: "Richard Stallman"
+      playlists:
+      - ownerName: "Richard Stallman"
+        songs:
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        name: "Best music 1980"
+        description: "Relax and enjoy the very best hits of the most awesome decade\
+          \ of music"
+        id: "98765"
+        ownerID: "11111"
+        creationDate: "2018-03-11T00:00:00.000Z"
+      - ownerName: "Richard Stallman"
+        songs:
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        - lenght: "03:05"
+          albumName: "Allenrok"
+          authorName: "Gloria Gaynor"
+          name: "I Will Survive"
+          genre:
+          - "rock"
+          - "rock"
+          albumID: "9876"
+          id: "123456789"
+          authorID: "4567"
+        name: "Best music 1980"
+        description: "Relax and enjoy the very best hits of the most awesome decade\
+          \ of music"
+        id: "98765"
+        ownerID: "11111"
+        creationDate: "2018-03-11T00:00:00.000Z"
       bio: "¡Larga vida al Open Source!"
       id: "11111"
       friends:
       - name: "Richard Stallman"
+        playlists:
+        - ownerName: "Richard Stallman"
+          songs:
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          name: "Best music 1980"
+          description: "Relax and enjoy the very best hits of the most awesome decade\
+            \ of music"
+          id: "98765"
+          ownerID: "11111"
+          creationDate: "2018-03-11T00:00:00.000Z"
+        - ownerName: "Richard Stallman"
+          songs:
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          name: "Best music 1980"
+          description: "Relax and enjoy the very best hits of the most awesome decade\
+            \ of music"
+          id: "98765"
+          ownerID: "11111"
+          creationDate: "2018-03-11T00:00:00.000Z"
         bio: "¡Larga vida al Open Source!"
         id: "11111"
         friends:
@@ -1722,6 +1903,63 @@ definitions:
         - null
         username: "rms"
       - name: "Richard Stallman"
+        playlists:
+        - ownerName: "Richard Stallman"
+          songs:
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          name: "Best music 1980"
+          description: "Relax and enjoy the very best hits of the most awesome decade\
+            \ of music"
+          id: "98765"
+          ownerID: "11111"
+          creationDate: "2018-03-11T00:00:00.000Z"
+        - ownerName: "Richard Stallman"
+          songs:
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          - lenght: "03:05"
+            albumName: "Allenrok"
+            authorName: "Gloria Gaynor"
+            name: "I Will Survive"
+            genre:
+            - "rock"
+            - "rock"
+            albumID: "9876"
+            id: "123456789"
+            authorID: "4567"
+          name: "Best music 1980"
+          description: "Relax and enjoy the very best hits of the most awesome decade\
+            \ of music"
+          id: "98765"
+          ownerID: "11111"
+          creationDate: "2018-03-11T00:00:00.000Z"
         bio: "¡Larga vida al Open Source!"
         id: "11111"
         friends:
