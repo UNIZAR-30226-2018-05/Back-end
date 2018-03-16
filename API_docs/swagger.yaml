@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "Back-end API del Proyecto Cierzo"
-  version: "1.0.0"
+  version: "2.0.0"
   title: "Proyecto Cierzo API"
   license:
     name: "Apache 2.0"
@@ -268,8 +268,8 @@ paths:
     get:
       tags:
       - "public"
-      summary: "obtiene el archivo de audio de una canción"
-      description: "Obtiene el archivo de audio de la canción identificada por songID\n"
+      summary: "obtiene la carátula de una canción"
+      description: "Obtiene la carátula de la canción identificada por songID\n"
       operationId: "getSongImage"
       produces:
       - "image/png"
@@ -291,9 +291,8 @@ paths:
     post:
       tags:
       - "admins"
-      summary: "carga el archivo de audio de una canción"
-      description: "Un admin carga el archivo de audio de una canción con identificador\
-        \ songID."
+      summary: "carga la carátula de una canción"
+      description: "Un admin carga la carátula de una canción con identificador songID."
       operationId: "uploadSongImage"
       consumes:
       - "multipart/form-data"
@@ -307,7 +306,7 @@ paths:
         type: "string"
       - name: "songImage"
         in: "formData"
-        description: "Song item to update"
+        description: "Image item to update"
         required: true
         type: "file"
       responses:
@@ -324,8 +323,8 @@ paths:
     delete:
       tags:
       - "admins"
-      summary: "elimina el archivo de audio de una canción"
-      description: "Elimina el fichero de audio de una canción identificada por songID\n"
+      summary: "elimina la carátula de una canción"
+      description: "Elimina la carátula de una canción identificada por songID\n"
       operationId: "deleteSongImage"
       produces:
       - "application/json"
@@ -337,7 +336,7 @@ paths:
         type: "string"
       responses:
         200:
-          description: "song deleted"
+          description: "image deleted"
         400:
           description: "bad input parameter"
         401:
@@ -350,21 +349,21 @@ paths:
     get:
       tags:
       - "public"
-      summary: "busca listas de reproducción con ciertos parámetros"
-      description: "Al pasarle ciertos parámetros devuelve listas de reproducción\
-        \ que se ajusten a ellos\n"
+      summary: "busca álbunes con ciertos parámetros"
+      description: "Al pasarle ciertos parámetros devuelve álbunes que se ajusten\
+        \ a ellos\n"
       operationId: "searchAlbum"
       produces:
       - "application/json"
       parameters:
       - name: "name"
         in: "query"
-        description: "nombre de la lista"
+        description: "nombre del álbum"
         required: false
         type: "string"
       - name: "author"
         in: "query"
-        description: "propietario de la lista"
+        description: "autor del álbum"
         required: false
         type: "string"
       - name: "skip"
@@ -394,8 +393,8 @@ paths:
     post:
       tags:
       - "admins"
-      summary: "crea una lista de reproducción"
-      description: "Un usuario crea una lista de reproducción."
+      summary: "crea un álbum"
+      description: "Un administrador crea un álbum"
       operationId: "addAlbum"
       consumes:
       - "application/json"
@@ -404,7 +403,7 @@ paths:
       parameters:
       - in: "body"
         name: "albumItem"
-        description: "Playlist item to add"
+        description: "Album item to add"
         required: false
         schema:
           $ref: "#/definitions/AlbumItemNew"
@@ -423,15 +422,15 @@ paths:
     get:
       tags:
       - "public"
-      summary: "obtiene una playlist"
-      description: "Obtiene los datos del album identificada por albumID\n"
+      summary: "obtiene un álbum"
+      description: "Obtiene los datos del álbum identificada por albumID\n"
       operationId: "getAlbum"
       produces:
       - "application/json"
       parameters:
       - name: "albumID"
         in: "path"
-        description: "ID del album"
+        description: "ID del álbum"
         required: true
         type: "string"
       responses:
@@ -446,20 +445,20 @@ paths:
     delete:
       tags:
       - "admins"
-      summary: "elimina un album"
-      description: "Elimina la playlist identificada por playlistID\n"
+      summary: "elimina un álbum"
+      description: "Elimina el álbum identificado por albumID\n"
       operationId: "deleteAlbum"
       produces:
       - "application/json"
       parameters:
       - name: "albumID"
         in: "path"
-        description: "ID de la playlist"
+        description: "ID del álbum"
         required: true
         type: "string"
       responses:
         200:
-          description: "playlist deleted"
+          description: "album deleted"
         400:
           description: "bad input parameter"
         401:
@@ -472,15 +471,15 @@ paths:
     get:
       tags:
       - "public"
-      summary: "obtiene el archivo de audio de una canción"
-      description: "Obtiene el archivo de audio de la canción identificada por songID\n"
+      summary: "obtiene la carátula de un álbum"
+      description: "Obtiene la carátula de un álbum identificado por albumID\n"
       operationId: "getAlbumImage"
       produces:
       - "image/png"
       parameters:
       - name: "albumID"
         in: "path"
-        description: "ID de la canción"
+        description: "ID del álbum"
         required: true
         type: "string"
       responses:
@@ -495,9 +494,8 @@ paths:
     post:
       tags:
       - "admins"
-      summary: "carga el archivo de audio de una canción"
-      description: "Un admin carga el archivo de audio de una canción con identificador\
-        \ songID."
+      summary: "carga la carátula de un álbum"
+      description: "Un admin carga la carátula de un álbum con identificador albumID."
       operationId: "uploadAlbumImage"
       consumes:
       - "multipart/form-data"
@@ -506,17 +504,17 @@ paths:
       parameters:
       - name: "albumID"
         in: "path"
-        description: "ID de la canción"
+        description: "ID del álbum"
         required: true
         type: "string"
       - name: "albumImage"
         in: "formData"
-        description: "Song item to update"
+        description: "Album image to update"
         required: true
         type: "file"
       responses:
         201:
-          description: "file uploaded"
+          description: "image uploaded"
         400:
           description: "invalid input, object invalid"
         401:
@@ -528,20 +526,20 @@ paths:
     delete:
       tags:
       - "admins"
-      summary: "elimina el archivo de audio de una canción"
-      description: "Elimina el fichero de audio de una canción identificada por songID\n"
+      summary: "elimina la carátula de un álbum"
+      description: "Elimina la carátula de un álbum identificadoa por albumID\n"
       operationId: "deleteAlbumImage"
       produces:
       - "application/json"
       parameters:
       - name: "albumID"
         in: "path"
-        description: "ID de la canción"
+        description: "ID del álbum"
         required: true
         type: "string"
       responses:
         200:
-          description: "song deleted"
+          description: "image deleted"
         400:
           description: "bad input parameter"
         401:
@@ -816,7 +814,7 @@ paths:
       tags:
       - "public"
       summary: "busca autores con ciertos parámetros"
-      description: "Al pasarle ciertos parámetros devuelve usuarios que se ajusten\
+      description: "Al pasarle ciertos parámetros devuelve autores que se ajusten\
         \ a ellos\n"
       operationId: "searchAuthors"
       produces:
@@ -875,13 +873,95 @@ paths:
           description: "bad input parameter"
         404:
           description: "not found"
+  /authors/{authorID}/image:
+    get:
+      tags:
+      - "public"
+      summary: "obtiene la imagen de un autor"
+      description: "Obtiene la imagen de un autor identificado por authorID\n"
+      operationId: "getAuthorImage"
+      produces:
+      - "image/png"
+      parameters:
+      - name: "authorID"
+        in: "path"
+        description: "ID del autor"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "success"
+          schema:
+            type: "file"
+        400:
+          description: "bad input parameter"
+        404:
+          description: "not found"
+    post:
+      tags:
+      - "admins"
+      summary: "carga la imagen e un autor"
+      description: "Un admin carga la imagen de un autor con identificador authorID."
+      operationId: "uploadAuthorImage"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authorID"
+        in: "path"
+        description: "ID del autor"
+        required: true
+        type: "string"
+      - name: "authorImage"
+        in: "formData"
+        description: "Image item to update"
+        required: true
+        type: "file"
+      responses:
+        201:
+          description: "file uploaded"
+        400:
+          description: "invalid input, object invalid"
+        401:
+          description: "need authentification"
+        403:
+          description: "operation forbidden for user"
+        404:
+          description: "not found"
+    delete:
+      tags:
+      - "admins"
+      summary: "elimina la imagen de un autor"
+      description: "Elimina la imagen de un autor identificado por authorID\n"
+      operationId: "deleteAuthorImage"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "authorID"
+        in: "path"
+        description: "ID del autor"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "image deleted"
+        400:
+          description: "bad input parameter"
+        401:
+          description: "need authentification"
+        403:
+          description: "operation forbidden for user"
+        404:
+          description: "not found"
   /profiles:
     get:
       tags:
       - "public"
       summary: "busca usuarios con ciertos parámetros"
       description: "Al pasarle ciertos parámetros devuelve usuarios que se ajusten\
-        \ a ellos\n"
+        \ a ellos. El campo \"friends\" de los amigos de un usuario está siempre vací\
+        o (valor NULL)\n"
       operationId: "searchProfiles"
       produces:
       - "application/json"
@@ -925,7 +1005,8 @@ paths:
       tags:
       - "public"
       summary: "obtiene un perfil de usuario identificado por profileID"
-      description: "Obtiene un perfil de usuario identificado por profileID\n"
+      description: "Obtiene un perfil de usuario identificado por profileID. El campo\
+        \ \"friends\" de los amigos de un usuario está siempre vacío (valor NULL)\n"
       operationId: "getProfile"
       produces:
       - "application/json"
@@ -998,7 +1079,8 @@ paths:
       tags:
       - "users"
       summary: "devuelve la información de la cuenta del usuario"
-      description: "Devuelve la información de la cuenta del usuario\n"
+      description: "Devuelve la información de la cuenta del usuario. El campo \"\
+        friends\" de los amigos de un usuario está siempre vacío (valor NULL)\n"
       operationId: "getAccount"
       produces:
       - "application/json"
@@ -1014,7 +1096,8 @@ paths:
       tags:
       - "users"
       summary: "actualiza información de cuenta de usuario"
-      description: "Actualiza la información de la cuenta del usuario"
+      description: "Actualiza la información de la cuenta del usuario. El campo \"\
+        friends\" de los amigos de un usuario está siempre vacío (valor NULL)"
       operationId: "updateAccount"
       consumes:
       - "application/json"
@@ -1056,7 +1139,9 @@ paths:
       tags:
       - "users"
       summary: "modifica credenciales de acceso de cuenta de usuario"
-      description: "Modifica las credenciales de acceso de la cuenta del usuario"
+      description: "Modifica las credenciales de acceso de la cuenta del usuario.\
+        \ El campo \"friends\" de los amigos de un usuario está siempre vacío (valor\
+        \ NULL)"
       operationId: "updateAccountCredentials"
       consumes:
       - "application/json"
@@ -1153,7 +1238,8 @@ paths:
       tags:
       - "public"
       summary: "inicia sesión de usuario"
-      description: "Inicia sesión de usuario"
+      description: "Inicia sesión de usuario. El campo \"friends\" de los amigos de\
+        \ un usuario está siempre vacío (valor NULL)"
       operationId: "login"
       consumes:
       - "application/json"
