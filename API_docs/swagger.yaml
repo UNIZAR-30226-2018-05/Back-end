@@ -551,7 +551,7 @@ paths:
   /albums/{albumID}/songs:
     post:
       tags:
-      - "admin"
+      - "admins"
       summary: "añade una canción a un album"
       description: "Un admin añade una canción a un album"
       operationId: "addAlbumSong"
